@@ -1,10 +1,8 @@
 import {combineReducers} from 'redux';
-import Albina from './Albina';
 import Jason from './jason';
 import Taya from './Taya';
+import auth from "../actions/actions.js"
 
 
-
-
-
-export default combineReducers(Albina, Jason, Taya)
+export default combineReducers({ Jason, Taya, auth})
+export * from '../actions/actions'

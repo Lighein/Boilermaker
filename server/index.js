@@ -4,13 +4,13 @@ const morgan = require('morgan');
 const path = require('path');
 
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 app.use('/api', require('./api'));
 
-app.use('*', (req, res, next) => {
+app.get('*', (req, res, next) => {
 	try {
 		res.sendFile(path.join(__dirname,  '../public/index.html'));
 	} catch (error) {
@@ -30,7 +30,7 @@ app.use((err, req, res, next) => {
 	res.status(500).send('Ooops, theres an error');
 });
 
-const PORT = 8080;
+const PORT = 8082;
 
 app.listen(PORT, () => {
 	console.log('I am listening to port number', PORT);

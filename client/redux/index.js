@@ -5,5 +5,6 @@ import rootReducer from './reducers/rootReducer';
 
 
 
+let store=createStore(rootReducer, applyMiddleware(thunk, loggingMiddleware))
+export default store;
 
-export default createStore(rootReducer, applyMiddleware(thunk, loggingMiddleware))
